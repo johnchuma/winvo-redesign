@@ -39,18 +39,18 @@ const Navbar = () => {
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
+    const targetId = href.replace("#", "");
     const targetElement = document.getElementById(targetId);
-    
+
     if (targetElement) {
       const navbarHeight = 80; // Approximate navbar height
       const targetPosition = targetElement.offsetTop - navbarHeight;
-      
+
       window.scrollTo({
         top: targetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
-      
+
       setIsMobileMenuOpen(false);
     }
   };
