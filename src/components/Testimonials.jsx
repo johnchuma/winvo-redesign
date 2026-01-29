@@ -61,20 +61,20 @@ const Testimonials = () => {
   return (
     <section ref={sectionRef} className="py-32 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="testimonial-title text-sm uppercase tracking-[0.3em] text-[#D4AF37] mb-6">
             Our Customer Feedback
           </h2>
-          <h3 className="testimonial-title text-5xl md:text-6xl mb-6">
+          <h3 className="testimonial-title text-5xl md:text-5xl mb-0">
             Don't take our word for it. <br />
             Trust the people who actually use WINVO
           </h3>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="testimonial-card glass-card p-10 md:p-16 rounded-3xl mb-8">
-            <div className="text-6xl text-[#D4AF37] mb-6">"</div>
-            <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-8">
+          <div className="testimonial-card glass-card p-8 md:p-12 rounded-3xl mb-8">
+            <div className="text-6xl text-[#D4AF37] mb-0">"</div>
+            <p className="text-xl md:text-xl text-white/80 leading-relaxed mb-4">
               {testimonials[activeIndex].text}
             </p>
             <div className="flex items-center gap-4">
@@ -84,7 +84,7 @@ const Testimonials = () => {
                 className="w-16 h-16 rounded-full border-2 border-[#D4AF37]/50 object-cover"
               />
               <div>
-                <div className="font-semibold text-lg">
+                <div className="font-semibold text-md">
                   {testimonials[activeIndex].name}
                 </div>
                 <div className="text-white/60">

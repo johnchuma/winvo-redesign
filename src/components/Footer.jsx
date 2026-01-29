@@ -10,7 +10,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-white/10 pt-20 pb-8 px-4 sm:px-8">
+    <footer className="border-t border-white/10 pt-12 pb-0 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Newsletter Section */}
         <div className="glass-card p-12 md:p-16 rounded-3xl mb-20 text-center">
@@ -130,7 +130,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10">
           <div className="flex items-center gap-2">
-            <img src="/logo.webp" alt="Winvo" className="h-8" />
+            <img src="/logo.webp" alt="Winvo" className="h-6" />
             <span className="text-white/40 text-sm">
               Your winning partner in invoice financing
             </span>

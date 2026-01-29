@@ -82,4 +82,16 @@
       opacity: 1;
     }
   }
+  
+  .chart-line {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    animation: drawLine 2s ease-out forwards;
+  }
+  
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
 }

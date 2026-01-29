@@ -96,7 +96,7 @@ const Hero = () => {
           </div>
 
           {/* Main heading */}
-          <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl max-w-4xl mx-auto leading-[1.2]">
+          <h1 className="hero-title text-5xl md:text-6xl lg:text-6xl max-w-4xl mx-auto leading-[1.2]">
             Your trusted partner for{" "}
             <span className="text-gradient-gold">secure money</span> investments
           </h1>
@@ -110,13 +110,13 @@ const Hero = () => {
 
           {/* CTA Button */}
           <div
-            className="inline-block mt-12"
+            className="inline-block mt-8"
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
             <button
               ref={btnRef}
-              className="magnetic-btn group relative px-12 py-5 bg-[#D4AF37] text-[#050505] font-semibold text-lg rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)]"
+              className="magnetic-btn group relative px-12 py-4 bg-[#D4AF37] text-[#050505] font-semibold text-lg rounded-full overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)]"
             >
               <span className="relative z-10">Start Investing</span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -125,7 +125,7 @@ const Hero = () => {
         </div>
 
         {/* Stats cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mt-24">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
           <div className="stat-card glass-card p-8 text-center rounded-3xl relative group">
             <svg
               className="absolute inset-0 w-full h-full animate-[cardFade_9s_ease-in-out_infinite]"

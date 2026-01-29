@@ -99,7 +99,7 @@ const HowItWorks = () => {
           <h2 className="works-title text-sm uppercase tracking-[0.3em] text-[#D4AF37] mb-6">
             How It Works
           </h2>
-          <h3 className="works-title text-5xl md:text-6xl mb-6">
+          <h3 className="works-title text-5xl md:text-5xl mb-6">
             How we build Winvo <br />
             for Investors like you
           </h3>
@@ -116,7 +116,7 @@ const HowItWorks = () => {
 
                   {/* Step number with animation */}
                   <div className="relative mb-6">
-                    <div className="step-number inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#D4AF37]/20 to-[#D4AF37]/5 border-2 border-[#D4AF37]/30 relative">
+                    <div className="step-number inline-flex items-center justify-center size-16 rounded-2xl bg-gradient-to-br from-[#D4AF37]/20 to-[#D4AF37]/5 border-2 border-[#D4AF37]/30 relative">
                       <CircleDot className="w-10 h-10 text-[#D4AF37]" />
                       <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-[#D4AF37] flex items-center justify-center text-xs font-bold text-[#050505]">
                         {step.number}
@@ -125,7 +125,7 @@ const HowItWorks = () => {
                   </div>
 
                   <div className="relative z-10">
-                    <h4 className="text-2xl md:text-3xl font-bold mb-4 group-hover:text-[#D4AF37] transition-colors duration-300">
+                    <h4 className="text-2xl md:text-2xl font-bold mb-4 group-hover:text-[#D4AF37] transition-colors duration-300">
                       {step.title}
                     </h4>
                     <p className="text-base text-white/60 leading-relaxed mb-6">
@@ -144,7 +144,7 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-12">
           <button className="group px-10 py-4 bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] font-semibold rounded-full hover:bg-[#D4AF37] hover:text-[#050505] transition-all duration-300">
             Start Investing
             <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">

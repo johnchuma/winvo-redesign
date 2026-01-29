@@ -31,31 +31,31 @@ const Partners = () => {
 
   const partnerLogos = [
     {
-      name: "Stripe",
-      url: "https://logos-world.net/wp-content/uploads/2021/03/Stripe-Logo.png",
+      name: "Smart Foundry",
+      url: "https://www.smartafrica.group/uploads/smartfoundry-logo.png",
     },
     {
-      name: "PayPal",
-      url: "https://logos-world.net/wp-content/uploads/2020/07/PayPal-Logo.png",
+      name: "Selcom",
+      url: "https://images.squarespace-cdn.com/content/v1/528206a7e4b0f4289e544eda/fca25423-05b4-494d-8ce9-673f902848e4/selcom.png",
     },
     {
       name: "Visa",
-      url: "https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo.png",
+      url: "https://cdn.sanity.io/images/0k2k2bbv/production/41fe5e9d3f2cd4474a88020f15561b6eda43ebef-3840x2160.png",
     },
     {
       name: "Mastercard",
-      url: "https://logos-world.net/wp-content/uploads/2020/09/Mastercard-Logo.png",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1280px-MasterCard_Logo.svg.png",
     },
     {
-      name: "American Express",
-      url: "https://logos-world.net/wp-content/uploads/2020/04/American-Express-Amex-Logo.png",
+      name: "NCBA",
+      url: "https://ug.ncbagroup.com/wp-content/uploads/2020/06/Webp.net-resizeimage-3.png",
     },
   ];
 
   return (
     <section ref={sectionRef} className="py-16 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="partners-title text-3xl md:text-5xl font-bold text-center mb-10">
+        <h2 className="partners-title text-3xl md:text-4xl font-bold text-center mb-10">
           Partners we worked with
         </h2>
 
@@ -69,7 +69,7 @@ const Partners = () => {
                 <img
                   src={partner.url}
                   alt={partner.name}
-                  className="h-8 md:h-10 w-auto object-contain brightness-0 invert"
+                  className="h-8 md:h-10 w-auto object-contain brightness-0 hover:brightness-100 hover:invert-0  invert"
                   onError={(e) => {
                     e.target.style.display = "none";
                     e.target.parentElement.innerHTML = `<span class="text-white/40 text-sm font-semibold">${partner.name}</span>`;
@@ -81,8 +81,8 @@ const Partners = () => {
         </div>
 
         {/* Who We Serve */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Who We serve</h2>
+        <div className="mt-10 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Who We serve</h2>
           <p className="text-lg text-white/60 mb-8 max-w-3xl mx-auto">
             WINVO connects businesses with capital and investors with
             opportunities. Explore our platform to unlock your potential today.

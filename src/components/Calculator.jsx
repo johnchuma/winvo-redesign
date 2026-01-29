@@ -98,10 +98,10 @@ const Calculator = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-32 pt-20 px-4 sm:px-8 relative overflow-hidden"
+      className="py-32 pt-12 px-4 sm:px-8 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="calculator-title text-sm uppercase tracking-[0.3em] text-[#D4AF37] mb-6">
             Calculator
           </h2>
@@ -154,7 +154,7 @@ const Calculator = () => {
                     value={invoiceAmount}
                     onChange={(e) => setInvoiceAmount(e.target.value)}
                     placeholder="Enter invoice amount"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-2 pl-12 pr-4 text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-colors"
                   />
                 </div>
               </div>
@@ -173,7 +173,7 @@ const Calculator = () => {
                     value={amountRequested}
                     onChange={(e) => setAmountRequested(e.target.value)}
                     placeholder="Enter amount requested"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-2 pl-12 pr-4 text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-colors"
                   />
                 </div>
               </div>
@@ -187,7 +187,7 @@ const Calculator = () => {
                   <select
                     value={loanDuration}
                     onChange={(e) => setLoanDuration(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-2 pl-12 pr-4 text-white focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none"
                   >
                     <option value="" className="bg-[#0a0a0a]">
                       Select a loan duration
@@ -215,13 +215,13 @@ const Calculator = () => {
               <div className="flex gap-4 pt-4">
                 <button
                   onClick={resetCalculator}
-                  className="flex-1 py-4 px-6 bg-white/5 border-2 border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
+                  className="flex-1 py-2 px-6 bg-white/5 border-2 border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300"
                 >
                   Reset
                 </button>
                 <button
                   onClick={calculateLoan}
-                  className="flex-1 py-4 px-6 bg-[#D4AF37] text-[#050505] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-300"
+                  className="flex-1 py-2 px-6 bg-[#D4AF37] text-[#050505] font-semibold rounded-full hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] transition-all duration-300"
                 >
                   Calculate
                 </button>
@@ -233,7 +233,7 @@ const Calculator = () => {
           <div className="calculator-form glass-card p-8 md:p-12 rounded-3xl">
             <div className="flex items-center gap-4 mb-8">
               <div className="size-12 rounded-2xl bg-gradient-to-br from-[#D4AF37]/20 to-[#D4AF37]/5 border border-[#D4AF37]/30 flex items-center justify-center">
-                <CalcIcon className=" w-8 h-8 text-[#D4AF37]" />
+                <CalcIcon className=" size-6 text-[#D4AF37]" />
               </div>
               <h4 className="text-2xl font-bold">Result</h4>
             </div>
@@ -273,7 +273,7 @@ const Calculator = () => {
                       </span>
                     </div>
 
-                    <div className="flex justify-between items-center py-4 mt-6 bg-[#D4AF37]/10 rounded-2xl px-4">
+                    <div className="flex justify-between items-center py-2 mt-6 bg-[#D4AF37]/10 rounded-2xl px-4">
                       <span className="text-lg font-bold text-sm">
                         Total loan disbursed:
                       </span>
