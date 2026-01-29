@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 
 const Navbar = () => {
@@ -37,22 +38,42 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToSection = (e, href) => {
     e.preventDefault();
-    const targetId = href.replace("#", "");
-    const targetElement = document.getElementById(targetId);
 
-    if (targetElement) {
-      const navbarHeight = 80; // Approximate navbar height
-      const targetPosition = targetElement.offsetTop - navbarHeight;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-
-      setIsMobileMenuOpen(false);
+    // If not on home page, navigate to home first
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Wait for navigation then scroll
+      setTimeout(() => {
+        const targetId = href.replace("#", "");
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const navbarHeight = 80;
+          const targetPosition = targetElement.offsetTop - navbarHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    } else {
+      const targetId = href.replace("#", "");
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const navbarHeight = 80;
+        const targetPosition = targetElement.offsetTop - navbarHeight;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      }
     }
+
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -84,12 +105,18 @@ const Navbar = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center gap-4 nav-item">
-            <button className="px-6 py-2.5 text-white font-medium hover:text-[#D4AF37] transition-colors">
+            <Link
+              to="/signin"
+              className="px-6 py-2.5 text-white font-medium hover:text-[#D4AF37] transition-colors"
+            >
               Sign In
-            </button>
-            <button className="px-6 py-2.5 bg-[#D4AF37] text-[#050505] font-semibold rounded-full hover:bg-[#FFD700] transition-all duration-300">
+            </Link>
+            <Link
+              to="/signup"
+              className="px-6 py-2.5 bg-[#D4AF37] text-[#050505] font-semibold rounded-full hover:bg-[#FFD700] transition-all duration-300"
+            >
               Sign Up
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -136,12 +163,18 @@ const Navbar = () => {
               </a>
             ))}
             <div className="pt-4 space-y-3">
-              <button className="w-full px-6 py-2.5 text-white font-medium border border-white/20 rounded-full hover:border-[#D4AF37] transition-colors">
+              <Link
+                to="/signin"
+                className="block w-full px-6 py-2.5 text-white font-medium border border-white/20 rounded-full hover:border-[#D4AF37] transition-colors text-center"
+              >
                 Sign In
-              </button>
-              <button className="w-full px-6 py-2.5 bg-[#D4AF37] text-[#050505] font-semibold rounded-full hover:bg-[#FFD700] transition-all duration-300">
+              </Link>
+              <Link
+                to="/signup"
+                className="block w-full px-6 py-2.5 bg-[#D4AF37] text-[#050505] font-semibold rounded-full hover:bg-[#FFD700] transition-all duration-300 text-center"
+              >
                 Sign Up
-              </button>
+              </Link>
             </div>
           </div>
         )}

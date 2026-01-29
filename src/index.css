@@ -94,4 +94,14 @@
       stroke-dashoffset: 0;
     }
   }
+  
+  /* Stacking Cards Effect */
+  .stacking-sections {
+    position: relative;
+  }
+  
+  .stacking-card {
+    position: relative;
+    will-change: transform;
+  }
 }
