@@ -23,6 +23,9 @@ function App() {
   useEffect(() => {
     if (isLoading) return;
 
+    // Check if desktop (1024px and above)
+    const isDesktop = window.innerWidth >= 1024;
+
     // The Golden Thread: Wealth node animation
     const wealthNode = wealthNodeRef.current;
 
@@ -41,25 +44,27 @@ function App() {
       });
     }
 
-    // Stacking cards animation with proper pinning
-    sectionsRef.current.forEach((section, index) => {
-      if (!section) return;
+    // Stacking cards animation - only on desktop
+    if (isDesktop) {
+      sectionsRef.current.forEach((section, index) => {
+        if (!section) return;
 
-      // Calculate the proper end point
-      const nextSection = sectionsRef.current[index + 1];
+        // Calculate the proper end point
+        const nextSection = sectionsRef.current[index + 1];
 
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-        end: nextSection
-          ? () => `+=${nextSection.offsetTop - section.offsetTop}`
-          : "max",
-        pin: true,
-        pinSpacing: false,
-        scrub: true,
-        anticipatePin: 1,
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          end: nextSection
+            ? () => `+=${nextSection.offsetTop - section.offsetTop}`
+            : "max",
+          pin: true,
+          pinSpacing: false,
+          scrub: true,
+          anticipatePin: 1,
+        });
       });
-    });
+    }
 
     // Cleanup
     return () => {
