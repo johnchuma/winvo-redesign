@@ -68,7 +68,7 @@ const Navbar = () => {
             <img
               src={`${import.meta.env.BASE_URL}logo.webp`}
               alt="Winvo"
-              className="h-4 md:h-6"
+              className="h-5 md:h-6"
             />
           </div>
 

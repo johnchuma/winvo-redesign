@@ -87,7 +87,7 @@ const LoadingScreen = ({ onComplete }) => {
       {/* Animated Charts */}
       {/* INVEST Chart - Bar chart going up */}
       <svg
-        className="chart-0 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-32 w-32 h-24 opacity-0"
+        className="chart-0 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-12 md:translate-y-32 w-32 h-24 opacity-0"
         viewBox="0 0 200 80"
       >
         <rect
@@ -119,7 +119,7 @@ const LoadingScreen = ({ onComplete }) => {
 
       {/* GROW Chart - Growth curve */}
       <svg
-        className="chart-1 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-32 w-32 h-24 opacity-0"
+        className="chart-1 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-12 md:translate-y-32 w-32 h-24 opacity-0"
         viewBox="0 0 200 80"
       >
         <defs>
@@ -164,7 +164,7 @@ const LoadingScreen = ({ onComplete }) => {
 
       {/* REPEAT Chart - Circular arrows */}
       <svg
-        className="chart-2 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-32 w-32 h-24 opacity-0"
+        className="chart-2 absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-12 md:translate-y-32 w-32 h-24 opacity-0"
         viewBox="0 0 200 80"
       >
         <defs>
