@@ -77,7 +77,7 @@ const LoadingScreen = ({ onComplete }) => {
         {words.map((word, index) => (
           <h1
             key={word}
-            className={`word-${index} absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl md:text-9xl lg:text-[9rem] font-bold text-gradient-gold opacity-0 whitespace-nowrap`}
+            className={`word-${index} absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl md:text-9xl lg:text-[8rem] font-bold text-gradient-gold opacity-0 whitespace-nowrap`}
           >
             {word}
           </h1>
