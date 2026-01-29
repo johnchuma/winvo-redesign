@@ -130,7 +130,11 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10">
           <div className="flex items-center gap-2">
-            <img src="/logo.webp" alt="Winvo" className="h-6" />
+            <img
+              src={`${import.meta.env.BASE_URL}logo.webp`}
+              alt="Winvo"
+              className="h-6"
+            />
             <span className="text-white/40 text-sm">
               Your winning partner in invoice financing
             </span>

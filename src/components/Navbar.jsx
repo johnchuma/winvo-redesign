@@ -65,7 +65,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="nav-item">
-            <img src="/logo.webp" alt="Winvo" className="h-4 md:h-6" />
+            <img
+              src={`${import.meta.env.BASE_URL}logo.webp`}
+              alt="Winvo"
+              className="h-4 md:h-6"
+            />
           </div>
 
           {/* Desktop Navigation */}
