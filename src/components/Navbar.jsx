@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,19 +43,18 @@ const Navbar = () => {
   const scrollToSection = (e, href) => {
     e.preventDefault();
     const targetId = href.replace("#", "");
-    const targetElement = document.getElementById(targetId);
 
-    if (targetElement) {
-      const navbarHeight = 80; // Approximate navbar height
-      const targetPosition = targetElement.offsetTop - navbarHeight;
+    // Use GSAP scrollTo which works with ScrollTrigger
+    gsap.to(window, {
+      duration: 1.5,
+      scrollTo: {
+        y: `#${targetId}`,
+        offsetY: 80,
+      },
+      ease: "power3.inOut",
+    });
 
-      window.scrollTo({
-        top: targetPosition,
-        behavior: "smooth",
-      });
-
-      setIsMobileMenuOpen(false);
-    }
+    setIsMobileMenuOpen(false);
   };
 
   return (

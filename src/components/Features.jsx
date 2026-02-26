@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TrendingUp, Shield, BarChart3, HeadphonesIcon } from "lucide-react";
@@ -7,6 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -222,8 +229,10 @@ const Features = () => {
                 key={index}
                 className="feature-card glass-card glass-card-hover p-6 rounded-3xl flex flex-col justify-between overflow-visible relative group perspective-1000"
                 style={{
-                  transform: `${feature.rotation.replace("rotate-[", "rotate(").replace("]", ")")} ${feature.tilt}`,
-                  transformStyle: "preserve-3d",
+                  transform: isMobile
+                    ? "none"
+                    : `${feature.rotation.replace("rotate-[", "rotate(").replace("]", ")")} ${feature.tilt}`,
+                  transformStyle: isMobile ? "flat" : "preserve-3d",
                 }}
               >
                 {/* Background Image */}

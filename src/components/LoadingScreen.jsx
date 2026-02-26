@@ -1,11 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 
 const LoadingScreen = ({ onComplete }) => {
   const [setCurrentWordIndex] = useState(0);
   const words = ["INVEST", "GROW", "REPEAT"];
+  const audioRef = useRef(null);
 
   useEffect(() => {
+    // Play intro audio
+    if (audioRef.current) {
+      audioRef.current.play().catch((error) => {
+        console.log("Audio autoplay prevented:", error);
+      });
+    }
+
     const timeline = gsap.timeline();
 
     // Animate each word with corresponding chart
@@ -60,15 +68,34 @@ const LoadingScreen = ({ onComplete }) => {
       duration: 0.8,
       ease: "power2.inOut",
       onComplete: () => {
+        // Stop audio when loading completes
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current.currentTime = 0;
+        }
         if (onComplete) onComplete();
       },
     });
 
-    return () => timeline.kill();
+    return () => {
+      timeline.kill();
+      // Cleanup audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    };
   }, [onComplete]);
 
   return (
     <div className="loading-screen fixed inset-0 z-[100] flex items-center justify-center bg-[#050505]">
+      {/* Audio element */}
+      <audio
+        ref={audioRef}
+        src={`${import.meta.env.BASE_URL}intro-audio.mp3`}
+        preload="auto"
+      />
+
       {/* Background gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37] opacity-10 blur-[150px] rounded-full"></div>
 
