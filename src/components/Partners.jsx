@@ -1,87 +1,11 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Users, Building2 } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Partners = () => {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".partners-title",
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: ".partners-title",
-            start: "top 80%",
-          },
-        },
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const partnerLogos = [
-    {
-      name: "Smart Foundry",
-      url: "https://www.smartafrica.group/uploads/smartfoundry-logo.png",
-    },
-    {
-      name: "Selcom",
-      url: "https://images.squarespace-cdn.com/content/v1/528206a7e4b0f4289e544eda/fca25423-05b4-494d-8ce9-673f902848e4/selcom.png",
-    },
-    {
-      name: "Visa",
-      url: "https://cdn.sanity.io/images/0k2k2bbv/production/41fe5e9d3f2cd4474a88020f15561b6eda43ebef-3840x2160.png",
-    },
-    {
-      name: "Mastercard",
-      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1280px-MasterCard_Logo.svg.png",
-    },
-    {
-      name: "NCBA",
-      url: "https://ug.ncbagroup.com/wp-content/uploads/2020/06/Webp.net-resizeimage-3.png",
-    },
-  ];
-
   return (
-    <section ref={sectionRef} className="py-16 px-4 sm:px-8">
+    <section className="py-16 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="partners-title text-3xl md:text-4xl font-bold text-center mb-10">
-          Partners we worked with
-        </h2>
-
-        <div className="glass-card p-6 md:p-8 rounded-3xl">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
-            {partnerLogos.map((partner, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-300"
-              >
-                <img
-                  src={partner.url}
-                  alt={partner.name}
-                  className="h-8 md:h-10 w-auto object-contain brightness-0 hover:brightness-100 hover:invert-0  invert"
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                    e.target.parentElement.innerHTML = `<span class="text-white/40 text-sm font-semibold">${partner.name}</span>`;
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Who We Serve */}
-        <div className="mt-10 text-center">
+        <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Who We serve</h2>
           <p className="text-lg text-white/60 mb-8 max-w-3xl mx-auto">
             WINVO connects businesses with capital and investors with

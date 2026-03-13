@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -7,6 +8,9 @@ gsap.registerPlugin(ScrollToPlugin);
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,12 +36,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Calculator", href: "#calculator" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", isRoute: false },
+    { name: "About", href: "/about", isRoute: true },
+    { name: "Borrower", href: "/borrower", isRoute: true },
+    { name: "Calculator", href: "#calculator", isRoute: false },
+    { name: "Contact", href: "/contact", isRoute: true },
   ];
 
   const scrollToSection = (e, href) => {
@@ -57,6 +60,22 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const handleNavClick = (e, link) => {
+    if (link.isRoute) {
+      setIsMobileMenuOpen(false);
+      return; // Let Link handle the routing
+    }
+
+    if (isHomePage) {
+      scrollToSection(e, link.href);
+    } else {
+      // If not on home page, navigate to home with hash
+      e.preventDefault();
+      navigate(`/${link.href}`);
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -66,26 +85,36 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="nav-item">
+          <Link to="/" className="nav-item">
             <img
               src={`${import.meta.env.BASE_URL}logo.webp`}
               alt="Winvo"
               className="h-5 md:h-6"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="nav-item text-white/80 hover:text-[#D4AF37] transition-colors duration-300 font-medium cursor-pointer"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link, index) =>
+              link.isRoute ? (
+                <Link
+                  key={index}
+                  to={link.href}
+                  className="nav-item text-white/80 hover:text-[#D4AF37] transition-colors duration-300 font-medium cursor-pointer"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={index}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link)}
+                  className="nav-item text-white/80 hover:text-[#D4AF37] transition-colors duration-300 font-medium cursor-pointer"
+                >
+                  {link.name}
+                </a>
+              ),
+            )}
           </div>
 
           {/* Desktop CTA Buttons */}
@@ -131,16 +160,27 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-6 glass-card rounded-2xl p-6 space-y-4">
-            {navLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="block text-white/80 hover:text-[#D4AF37] transition-colors duration-300 font-medium py-2 cursor-pointer"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link, index) =>
+              link.isRoute ? (
+                <Link
+                  key={index}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-white/80 hover:text-[#D4AF37] transition-colors duration-300 font-medium py-2 cursor-pointer"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={index}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link)}
+                  className="block text-white/80 hover:text-[#D4AF37] transition-colors duration-300 font-medium py-2 cursor-pointer"
+                >
+                  {link.name}
+                </a>
+              ),
+            )}
             <div className="pt-4 space-y-3">
               <button className="w-full px-6 py-2.5 text-white font-medium border border-white/20 rounded-full hover:border-[#D4AF37] transition-colors">
                 Sign In
