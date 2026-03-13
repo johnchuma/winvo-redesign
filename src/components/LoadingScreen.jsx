@@ -8,7 +8,7 @@ const LoadingScreen = ({ onComplete }) => {
 
   useEffect(() => {
     const audioElement = audioRef.current;
-    
+
     // Play intro audio
     if (audioElement) {
       audioElement.play().catch((error) => {
