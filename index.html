@@ -18,9 +18,8 @@
     <meta name="apple-mobile-web-app-title" content="Winvo" />
 
     <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="icon" href="/winvo-redesign/logo.webp" />
+    <link rel="apple-touch-icon" href="/winvo-redesign/logo.webp" />
 
     <!-- Manifest -->
     <link rel="manifest" href="/winvo-redesign/manifest.json" />
@@ -34,26 +33,10 @@
     />
 
     <title>Winvo - Your trusted partner for secure money investments</title>
-    <script type="module" crossorigin src="/winvo-redesign/assets/index-Bqytl8cu.js"></script>
+    <script type="module" crossorigin src="/winvo-redesign/assets/index-CI7_Nprh.js"></script>
     <link rel="stylesheet" crossorigin href="/winvo-redesign/assets/index-D5fQ0FiS.css">
   </head>
   <body>
     <div id="root"></div>
-
-    <!-- Service Worker Registration -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/sw.js")
-            .then((registration) => {
-              console.log("ServiceWorker registered:", registration);
-            })
-            .catch((error) => {
-              console.log("ServiceWorker registration failed:", error);
-            });
-        });
-      }
-    </script>
   </body>
 </html>

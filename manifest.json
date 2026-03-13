@@ -9,31 +9,11 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/winvo-redesign/icon-192.png",
+      "src": "/winvo-redesign/logo.webp",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/winvo-redesign/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["finance", "business"],
-  "screenshots": [
-    {
-      "src": "/winvo-redesign/screenshot-mobile.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/winvo-redesign/screenshot-desktop.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide"
-    }
-  ]
+  "categories": ["finance", "business"]
 }
