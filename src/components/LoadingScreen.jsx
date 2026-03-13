@@ -1,15 +1,17 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+const words = ["INVEST", "GROW", "REPEAT"];
+
 const LoadingScreen = ({ onComplete }) => {
-  const [setCurrentWordIndex] = useState(0);
-  const words = ["INVEST", "GROW", "REPEAT"];
   const audioRef = useRef(null);
 
   useEffect(() => {
+    const audioElement = audioRef.current;
+    
     // Play intro audio
-    if (audioRef.current) {
-      audioRef.current.play().catch((error) => {
+    if (audioElement) {
+      audioElement.play().catch((error) => {
         console.log("Audio autoplay prevented:", error);
       });
     }
@@ -28,7 +30,6 @@ const LoadingScreen = ({ onComplete }) => {
             y: 0,
             duration: 0.8,
             ease: "power4.out",
-            onStart: () => setCurrentWordIndex(index),
           },
         )
         .fromTo(
@@ -69,9 +70,9 @@ const LoadingScreen = ({ onComplete }) => {
       ease: "power2.inOut",
       onComplete: () => {
         // Stop audio when loading completes
-        if (audioRef.current) {
-          audioRef.current.pause();
-          audioRef.current.currentTime = 0;
+        if (audioElement) {
+          audioElement.pause();
+          audioElement.currentTime = 0;
         }
         if (onComplete) onComplete();
       },
@@ -80,9 +81,9 @@ const LoadingScreen = ({ onComplete }) => {
     return () => {
       timeline.kill();
       // Cleanup audio
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
+      if (audioElement) {
+        audioElement.pause();
+        audioElement.currentTime = 0;
       }
     };
   }, [onComplete]);

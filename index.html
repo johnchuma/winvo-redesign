@@ -18,9 +18,8 @@
     <meta name="apple-mobile-web-app-title" content="Winvo" />
 
     <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="icon" href="/logo.webp" />
+    <link rel="apple-touch-icon" href="/logo.webp" />
 
     <!-- Manifest -->
     <link rel="manifest" href="/manifest.json" />
@@ -38,21 +37,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-
-    <!-- Service Worker Registration -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/sw.js")
-            .then((registration) => {
-              console.log("ServiceWorker registered:", registration);
-            })
-            .catch((error) => {
-              console.log("ServiceWorker registration failed:", error);
-            });
-        });
-      }
-    </script>
   </body>
 </html>

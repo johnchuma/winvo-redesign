@@ -15,7 +15,7 @@ function App() {
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       {!isLoading && (
-        <Router>
+        <Router basename={import.meta.env.BASE_URL}>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
